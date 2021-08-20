@@ -1,0 +1,24 @@
+body{
+    font-family: 'Recursive', sans-serif;
+    display: flex;
+    justify-content: flex-end;
+   
+}
+
+  .add{
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      padding: 1.5em 1em;
+      border-radius: 50%;
+      background-color: hsl(217°, 6%, 19% );
+      font-size: 1.5rem;
+      box-shadow: 5px 10px 10px 1px gray;
+      color: white;
+      cursor: pointer;
+  }
+  .add:hover{
+      bottom: 33px;
+      right: 33px;
+      background-color: hsl(220°, 3%, 28%);
+  }

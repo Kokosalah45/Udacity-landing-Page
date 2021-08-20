@@ -1,0 +1,47 @@
+.navbar{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10%;
+    padding: .5em .5em;
+    background-color: hsl(217°, 6%, 19% ); //217°, 6%, 19%
+    overflow: auto;
+    direction: rtl;
+   
+
+    box-shadow: 1px 0px 4px 0px;
+   
+
+    &__button{
+        text-align: center;
+        display: flex;
+        text-decoration: none;
+        color: white;
+        font-size: 1.5em;
+        font-weight: 500;
+        padding: 1.2em;
+        transition: 0.3s ease-out;
+        border-radius: 10px;
+        transition-property: background-color;
+        margin : .3em 0;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    &__button:hover{
+        background-color: hsl(216°, 5%, 32%);
+    }
+    &__button.active:hover{
+        background-color: white;
+        
+    }
+}
+
+.active{
+    background-color: lightgray;
+    color: hsl(217°, 6%, 19% );;
+}
+
