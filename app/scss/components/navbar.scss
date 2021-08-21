@@ -5,10 +5,11 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 10vw;
+    width: 15vw;
     padding: .5em .5em;
     background-color: hsl(217°, 6%, 19% ); //217°, 6%, 19%
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y : auto;
     direction: rtl;
    
 

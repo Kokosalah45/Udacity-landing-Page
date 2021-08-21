@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 90vw;
+    width: 85vw;
    
    
 
@@ -33,11 +33,13 @@
         &__text{
             max-width: 75ch;
             overflow-y: auto;
+            overflow-x: hidden;
             direction: rtl;
             font-size: 2rem;
             padding : .5em;
       line-height: 2.5rem;
       letter-spacing: 1px;
+      word-break: break-all;
         }
 
         
@@ -47,13 +49,13 @@
 }
 
 
-@media (max-width : 1294px ){
+@media (max-width : 700px ){
 
 .main{
-    width: 80vw;
+    width: 75vw;
 }
 .navbar{
-    width: 20vw;
+    width: 25vw;
 }
 .navbar__button{
     font-size: 0.9rem;
@@ -63,6 +65,7 @@
     &__section{
         &__text{
             font-size: 1rem;
+            max-width: 45ch;
             
         }
         &__title{
