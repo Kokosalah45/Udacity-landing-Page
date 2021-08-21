@@ -1,6 +1,6 @@
 let navButtonsLive = document.getElementsByClassName('navbar__button');
 let sectionsLive = document.getElementsByClassName('main__section');
-let main = document.querySelector('.main');
+let sectionsContainer = document.querySelector('.sections-container');
 let navbar = document.querySelector('.navbar');
 let windowHeight = window.innerHeight/3;
 let addButton = document.querySelector('.add');
@@ -12,6 +12,7 @@ let titleField = document.querySelector('.popup__title-input');
 let textareaField = document.querySelector('.popup__text-area');
 
 let addActiveState = (currentIndex) =>{
+    
     
     let navButtonsStatic = Array.from(navButtonsLive);
     navButtonsStatic.forEach(e=>{
@@ -45,8 +46,9 @@ let addNavButton = titleFieldVal =>{
 }
 let addSection  = (titleFieldVal,textAreaFieldVal) =>{
     let el = document.createElement('div');
-    el.id = `section${sectionsLive.length}`;
     el.classList.add('main__section');
+    el.id = `section${sectionsLive.length}`;
+    
     el.innerHTML =  `
   
         <h3 class = "main__section__title">${titleFieldVal}</h3>
@@ -56,7 +58,7 @@ let addSection  = (titleFieldVal,textAreaFieldVal) =>{
         
     `;
 
-    main.appendChild(el);
+    sectionsContainer.appendChild(el);
    
 
 }
@@ -65,6 +67,7 @@ let addSection  = (titleFieldVal,textAreaFieldVal) =>{
 
 
 window.addEventListener('scroll' , el => {
+    let currentIndex  = 0 ;
 let sectionsStatic = Array.from(sectionsLive);
 sectionsStatic.forEach(e=>
     {
@@ -72,19 +75,33 @@ sectionsStatic.forEach(e=>
         let currentTop = e.getBoundingClientRect().top;
        
         if(currentTop <= windowHeight && currentTop>= 0  ){
-            addActiveState(sectionsStatic.indexOf(e));
+            for (let i = 0 ; i<sectionsLive.length ; i++){
+                if (e === sectionsLive[i]){
+                    currentIndex = i;
+                    break;
+                }
+                    
+            }
+            addActiveState(currentIndex);
         }
     })
 
     });
 
-    navbar.addEventListener('click' , e=>{
-        e.stopPropagation();
-        if (e.target.classList.contains("navbar__button")){
-            addActiveState(navButtonsLive.indexOf(e.target));   
+    navbar.addEventListener('click' , el=>{
+        let currentIndex  = 0 ;
+        if (el.target.classList.contains("navbar__button")){
+            for (let i = 0 ; i<navButtonsLive.length ; i++){
+                if (el.target === navButtonsLive[i]){
+                    currentIndex = i;
+                    break;
+                }
+                    
+            }
+            addActiveState(currentIndex);
         }
        
-    },true);
+    });
 
     addButton.addEventListener('click' , e => {
         titleField.placeholder = `
