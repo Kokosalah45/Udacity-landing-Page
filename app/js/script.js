@@ -12,6 +12,7 @@ let titleField = document.querySelector('.popup__title-input');
 let textareaField = document.querySelector('.popup__text-area');
 
 let addActiveState = (currentIndex) =>{
+    
     let navButtonsStatic = Array.from(navButtonsLive);
     navButtonsStatic.forEach(e=>{
         e.classList.remove('active');
@@ -80,7 +81,7 @@ sectionsStatic.forEach(e=>
     navbar.addEventListener('click' , e=>{
         e.stopPropagation();
         if (e.target.classList.contains("navbar__button")){
-            addActiveState(navButtonsStatic.indexOf(e.target));   
+            addActiveState(navButtonsLive.indexOf(e.target));   
         }
        
     },true);
@@ -107,19 +108,28 @@ sectionsStatic.forEach(e=>
                 textareaField.placeholder = "This Field is Required !";
 
             }else{
+                let flag = false;
+               
                 if(titleField.value === ""){
-                    titleFieldVal = titleField.placeholder.slice(10);
+                    titleFieldVal = `Section ${sectionsLive.length}`;
+                    flag =true;
                     
                  }else{
-                    titleFieldVal = titleField.value;
+                    if(titleField.value.length <= 10){
+                        flag = true;
+                        titleFieldVal = titleField.value;
                     }
-                if(titleFieldVal.length > 10){
-                    titleField.value = "";
-                }else{
-                    addNavButton(titleFieldVal);
+               
+                }
+               if(flag){
+    		    addNavButton(titleFieldVal);
                     addSection(titleFieldVal,textareaField.value);
                     removePopUp();
-                }
+                    
+               }else{
+			    titleField.value = "";
+                   
+               }
                
 
             }
