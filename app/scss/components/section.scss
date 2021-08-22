@@ -62,7 +62,11 @@
 }
 .navbar__button{
     font-size: 0.9rem;
+    
 
+}
+.navbar__button:hover{
+    background-color: hsl(217°, 6%, 19% );;
 }
 .main{
     &__section{
