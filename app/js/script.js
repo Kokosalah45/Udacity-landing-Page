@@ -1,8 +1,9 @@
 let navButtonsLive = document.getElementsByClassName('navbar__button');
 let sectionsLive = document.getElementsByClassName('main__section');
 let sectionsContainer = document.querySelector('.sections-container');
+let main = document.querySelector('.main');
 let navbar = document.querySelector('.navbar');
-let windowHeight = window.innerHeight/3;
+let windowHeight = window.innerHeight/4;
 let addButton = document.querySelector('.add');
 let popup = document.querySelector('.popup');
 let overlay = document.querySelector('.overlay');
@@ -86,22 +87,9 @@ sectionsStatic.forEach(e=>
         }
     })
 
-    });
+    },true);
 
-    navbar.addEventListener('click' , el=>{
-        let currentIndex  = 0 ;
-        if (el.target.classList.contains("navbar__button")){
-            for (let i = 0 ; i<navButtonsLive.length ; i++){
-                if (el.target === navButtonsLive[i]){
-                    currentIndex = i;
-                    break;
-                }
-                    
-            }
-            addActiveState(currentIndex);
-        }
-       
-    });
+    
 
     addButton.addEventListener('click' , e => {
         titleField.placeholder = `
